@@ -70,7 +70,7 @@ public class ChatServer {
             FileOutputStream myFileOutStream
                     = new FileOutputStream(
 
-                            "data/usersData.txt");
+                                "src/main/resources/usersData.txt");
 
 
             ObjectOutputStream myObjectOutStream
@@ -198,10 +198,6 @@ public class ChatServer {
 
     /**
      * Check if there are users registered on the server.
-<<<<<<< Updated upstream
-     *
-=======
->>>>>>> Stashed changes
      * @return True if there are users registered or False if there aren't.
      */
     boolean hasRegisteredUsers() {
