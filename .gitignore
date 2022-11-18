@@ -1,2 +1,3 @@
 /target/
 /data/usersData.txt
+/src/main/resources/MyLogFile.txt
