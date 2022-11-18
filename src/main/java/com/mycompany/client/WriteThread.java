@@ -34,7 +34,7 @@ public class WriteThread extends Thread {
         
         // Saves username in client
         client.setUserName(client.getUserName());
-        writer.println(client.getUserName());
+//        writer.println(client.getUserName());
  
         String text;
  
