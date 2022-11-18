@@ -32,7 +32,7 @@ public class ChatClient {
      */
     public void execute() {
         try {
-            fileHandler = new FileHandler("src/main/resources/MyLogFile.txt");
+            fileHandler = new FileHandler("src/main/resources/MyLogFile.txt", true);
             logger.addHandler(fileHandler);
             SimpleFormatter simpleFormatter = new SimpleFormatter();
             fileHandler.setFormatter(simpleFormatter);
@@ -169,7 +169,7 @@ public class ChatClient {
     public static void main(String[] args) {
         
         // We define the IP direction and the port
-        String hostname = "localhost"; //Luis ip: 192.168.3.152  Manuel ip: 192.168.3.129
+        String hostname = "192.168.3.129"; //Luis ip: 192.168.3.152  Manuel ip: 192.168.3.129
         int port = 3337;
 
         // We launch the client

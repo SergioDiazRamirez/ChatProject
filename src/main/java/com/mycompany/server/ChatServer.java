@@ -94,6 +94,7 @@ public class ChatServer {
             FileInputStream fileInput = new FileInputStream(
                     "src/main/resources/usersData.txt");
 
+
             if (fileInput.available() != 0) {
                 ObjectInputStream objectInput
                         = new ObjectInputStream(fileInput);
@@ -197,10 +198,6 @@ public class ChatServer {
 
     /**
      * Check if there are users registered on the server.
-<<<<<<< Updated upstream
-     *
-=======
->>>>>>> Stashed changes
      * @return True if there are users registered or False if there aren't.
      */
     boolean hasRegisteredUsers() {
