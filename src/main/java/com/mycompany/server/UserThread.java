@@ -117,14 +117,15 @@ public class UserThread extends Thread {
             writer.println("200_AUTENTIFICACION CORRECTA");
             successful = true;
 
-            printUsers();
+            
 
             server.connectUser(username);
 
             // Announces that someone has just connected
             String serverMessage = "Nuevo usuario conectado: " + username;
             server.broadcast(serverMessage, this);
-
+            
+            printUsers();
 
         } else if (autenticated == 1){
             writer.println("401_AUTENTIFICACION FALLIDA");

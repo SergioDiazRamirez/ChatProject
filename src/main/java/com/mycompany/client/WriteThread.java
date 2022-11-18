@@ -42,6 +42,10 @@ public class WriteThread extends Thread {
             System.out.print("[" + client.getUserName() + "]: ");
             text = scanner.nextLine();
             writer.println(text);
+            if(text.equals("BOT")){
+                Bot bot = new Bot();
+                System.out.println(bot.askBoot());
+            }
  
         } while (!text.equals("SALIR"));
  
