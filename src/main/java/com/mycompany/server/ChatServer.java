@@ -70,7 +70,7 @@ public class ChatServer {
             FileOutputStream myFileOutStream
                     = new FileOutputStream(
 
-                            "data/usersData.txt");
+                                "src/main/resources/usersData.txt");
 
 
             ObjectOutputStream myObjectOutStream
@@ -92,7 +92,7 @@ public class ChatServer {
     public void loadData() {
         try {
             FileInputStream fileInput = new FileInputStream(
-                    "data/usersData.txt");
+                    "src/main/resources/usersData.txt");
 
             if (fileInput.available() != 0) {
                 ObjectInputStream objectInput
