@@ -92,11 +92,8 @@ public class ChatServer {
     public void loadData() {
         try {
             FileInputStream fileInput = new FileInputStream(
-<<<<<<< HEAD
-                    "src/main/resources/userData.txt");
-=======
-                    "data/usersData.txt");
->>>>>>> 5c88a7bc671571c5ed8f5e4f04c002736abfe498
+                    "src/main/resources/usersData.txt");
+
 
             if (fileInput.available() != 0) {
                 ObjectInputStream objectInput
