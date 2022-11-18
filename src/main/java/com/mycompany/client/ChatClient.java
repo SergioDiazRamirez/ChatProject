@@ -69,7 +69,6 @@ public class ChatClient {
                         writer.println("login " + userName + " " + psswd);
                         String response = reader.readLine();
                         String resp[] = response.split("_");
-                        System.out.println(response);
                         switch (resp[0]) {
                             case "200" -> {
                                 logger.info(resp[1]);
