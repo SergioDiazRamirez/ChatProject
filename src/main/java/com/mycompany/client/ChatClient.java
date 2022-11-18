@@ -91,7 +91,6 @@ public class ChatClient {
                         System.out.println("Introduce tu contraseña");
                         psswd = sc.nextLine();
                         writer.println("register " + userName + " " + psswd);
-
                         String response = reader.readLine();
                         String[] resp = response.split("_");
                         switch (resp[0]) {
