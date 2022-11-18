@@ -124,7 +124,7 @@ public class ChatServer {
      */
     void broadcast(String message, UserThread excludeUser) {
         for (UserThread aUser : userThreads) {
-            if (aUser != excludeUser) {
+            if (aUser != excludeUser && onlineUsers.contains(aUser.getUsername())) {
                 aUser.sendMessage(message);
             }
         }
