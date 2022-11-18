@@ -32,7 +32,7 @@ public class ChatClient {
      */
     public void execute() {
         try {
-            fileHandler = new FileHandler("src/main/resources/MyLogFile.txt");
+            fileHandler = new FileHandler("src/main/resources/MyLogFile.txt", true);
             logger.addHandler(fileHandler);
             SimpleFormatter simpleFormatter = new SimpleFormatter();
             fileHandler.setFormatter(simpleFormatter);
@@ -69,6 +69,7 @@ public class ChatClient {
                         writer.println("login " + userName + " " + psswd);
                         String response = reader.readLine();
                         String resp[] = response.split("_");
+                        System.out.println(response);
                         switch (resp[0]) {
                             case "200" -> {
                                 logger.info(resp[1]);
@@ -91,6 +92,8 @@ public class ChatClient {
                         writer.println("register " + userName + " " + psswd);
                         response = reader.readLine();
                         resp = response.split("_");
+                                                System.out.println(response);
+
                         switch (resp[0]) {
                             case "201" -> {
                                 logger.info(resp[1]);
@@ -168,7 +171,7 @@ public class ChatClient {
     public static void main(String[] args) {
         
         // We define the IP direction and the port
-        String hostname = "localhost"; //Luis ip: 192.168.3.152  Manuel ip: 192.168.3.129
+        String hostname = "192.168.3.129"; //Luis ip: 192.168.3.152  Manuel ip: 192.168.3.129
         int port = 3337;
 
         // We launch the client
