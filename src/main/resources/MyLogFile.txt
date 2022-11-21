@@ -8,3 +8,21 @@ nov 18, 2022 2:52:31 P. M. com.mycompany.client.ChatClient execute
 INFO: USUARIO CREADO
 nov 18, 2022 2:52:44 P. M. com.mycompany.client.ChatClient execute
 INFO: AUTENTIFICACION CORRECTA
+nov 18, 2022 3:24:05 P. M. com.mycompany.client.ChatClient execute
+INFO: USUARIO CREADO
+nov 18, 2022 3:24:12 P. M. com.mycompany.client.ChatClient execute
+INFO: AUTENTIFICACION CORRECTA
+nov 18, 2022 3:43:41 P. M. com.mycompany.client.ChatClient execute
+WARNING: AUTENTIFICACION FALLIDA
+nov 18, 2022 3:43:47 P. M. com.mycompany.client.ChatClient execute
+INFO: USUARIO CREADO
+nov 18, 2022 3:43:54 P. M. com.mycompany.client.ChatClient execute
+INFO: AUTENTIFICACION CORRECTA
+nov 18, 2022 5:19:45 P. M. com.mycompany.client.ChatClient execute
+INFO: USUARIO CREADO
+nov 18, 2022 5:19:50 P. M. com.mycompany.client.ChatClient execute
+INFO: AUTENTIFICACION CORRECTA
+nov 18, 2022 5:29:09 P. M. com.mycompany.client.ChatClient execute
+INFO: USUARIO CREADO
+nov 18, 2022 5:29:13 P. M. com.mycompany.client.ChatClient execute
+INFO: AUTENTIFICACION CORRECTA
