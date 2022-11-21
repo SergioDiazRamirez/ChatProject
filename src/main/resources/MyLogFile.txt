@@ -38,3 +38,7 @@ nov 21, 2022 10:12:00 A. M. com.mycompany.client.ChatClient execute
 INFO: USUARIO CREADO
 nov 21, 2022 10:12:06 A. M. com.mycompany.client.ChatClient execute
 INFO: AUTENTIFICACION CORRECTA
+nov 21, 2022 10:38:03 A. M. com.mycompany.client.ChatClient execute
+INFO: USUARIO CREADO
+nov 21, 2022 10:38:07 A. M. com.mycompany.client.ChatClient execute
+INFO: AUTENTIFICACION CORRECTA
