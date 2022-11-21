@@ -15,6 +15,8 @@ public class UserThread extends Thread {
     private String username = null;
     private String password = null;
 
+    private String room = null;
+
     /**
      * Initializes the thread with a given socket and a reference of the server.
      *
@@ -24,6 +26,8 @@ public class UserThread extends Thread {
     public UserThread(Socket socket, ChatServer server) {
         this.socket = socket;
         this.server = server;
+
+        this.room = "main";
     }
 
     /**
@@ -46,8 +50,26 @@ public class UserThread extends Thread {
             do {
                 // Reads the message stored in the buffer and it gets send to the online users until the user types "SALIR"
                 clientMessage = reader.readLine();
-                serverMessage = "[" + userName + "]: " + clientMessage;
-                server.broadcast(serverMessage, this);
+
+                // Checks if the user has entered a command
+                if (clientMessage.charAt(0) == '/') {
+                    String[] command = clientMessage.split(" ");
+                    //Check if the command format is correct
+                    if (command.length != 2) { // CONTINUAR AQUI, HAY QUE ENVIAR MENSAJES NORMALES, NO CÓDIGOS (creo)
+                        writer.println("400_NUMERO DE ARGUMENTOS INCORRECTO");
+                    } else {
+                        String option = command[0];
+                        if (option.equals("/join")) {
+                            swapRoom(command[1]);
+                        } else {
+                            writer.println("COMANDO DESCONOCIDO");
+                        }
+
+                    }
+                } else {
+                    serverMessage = "(" + room + ")[" + userName + "]: " + clientMessage;
+                    server.broadcast(serverMessage, this);
+                }
 
             } while (!clientMessage.equals("SALIR"));
 
@@ -67,8 +89,6 @@ public class UserThread extends Thread {
     public String getUsername() {
         return username;
     }
-    
-    
 
     String askOrder() {
         do {
@@ -89,14 +109,14 @@ public class UserThread extends Thread {
                 writer.println("400_NUMERO DE ARGUMENTOS INCORRECTO");
             } else {
                 String option = orderArguments[0];
-                if(option.equals("login")){
+                if (option.equals("login")) {
                     login(orderArguments);
-                }else if(option.equals("register")){
+                } else if (option.equals("register")) {
                     register(orderArguments);
-                }else{
+                } else {
                     writer.println("400_ORDEN NULA");
                 }
-                
+
             }
         } while (!successful);
         return username;
@@ -111,26 +131,25 @@ public class UserThread extends Thread {
         password = orderArguments[2];
         int autenticated = server.authenticate(username, password);
 
-
         if (autenticated == 0) {
 
             writer.println("200_AUTENTIFICACION CORRECTA");
             successful = true;
-
-            
 
             server.connectUser(username);
 
             // Announces that someone has just connected
             String serverMessage = "Nuevo usuario conectado: " + username;
             server.broadcast(serverMessage, this);
-            
+
             printUsers();
 
-        } else if (autenticated == 1){
+        } else if (autenticated == 1) {
+
             writer.println("401_AUTENTIFICACION FALLIDA");
-        } else
+        } else {
             writer.println("403_USUARIO YA CONECTADO");
+        }
 
     }
 
@@ -179,5 +198,24 @@ public class UserThread extends Thread {
      */
     void sendMessage(String message) {
         writer.println(message);
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    boolean swapRoom(String room) {
+        boolean changed = false;
+
+        if (server.getUsersOnline().contains(username)) {
+            this.room = room;
+            changed = true;
+        }
+
+        return changed;
     }
 }
