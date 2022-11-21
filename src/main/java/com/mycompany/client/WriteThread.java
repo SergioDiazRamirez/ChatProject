@@ -45,8 +45,8 @@ public class WriteThread extends Thread {
             if(text.equals("BOT")){
                 Bot bot = new Bot();
                 System.out.println("[BOT]: "+bot.askBoot());
-                writer.println(client.getUserName());
-            }
+                writer.println("[BOT]: "+bot.askBoot());
+            } 
  
         } while (!text.equals("SALIR"));
  
