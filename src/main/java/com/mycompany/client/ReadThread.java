@@ -36,9 +36,13 @@ public class ReadThread extends Thread {
                 String response = reader.readLine();
                 // Prints the messages
                 System.out.println("\n" + response);
-
+                
+                String bot[] = response.split(" ");
+                if(bot[0].equals("[BOT]:")){
+                    System.out.println("");
+                }
                 // Prints the username
-                if (!this.firstTime) {
+                else if(!this.firstTime) {
                     System.out.print("[" + client.getUserName() + "]: ");
                 }
                 firstTime = false;
